@@ -22,12 +22,21 @@ VALUES
     ('Washing Machine', 'Appliances', 700.00, 8);
     
     #2
-    select ProductName, Category, Price from Products where Price > (select Price from Products where ProductName = 'MacBook Air');
+    select ProductName, Category, Price from Products where Price > 
+    (select Price from Products where ProductName like 'MacBook Air');
+    select Price from Products where ProductName like 'MacBook Air';
+   
+    #3 Tìm tên sản phẩm (ProductName), loại sản phẩm (Category), 
+    # và giá (Price) của các sản phẩm thuộc loại "Electronics" 
+    # nhưng có giá thấp hơn sản phẩm "Laptop". 
+    select ProductName, Category,Price from Products where Category like 'Electronics' and Price < 
+    (select Price from Products where ProductName like 'Laptop');
+    select Price from Products where ProductName like 'Laptop';
     
-    ## Em chưa có thời gian nên em đang làm dở bài 5 này, khi nào có thời gian em sẽ bổ sung nốt các bài tập.
-    ## Mong thầy thông cảm
-    #3
-    
-    
+    #Tìm tên sản phẩm (ProductName), giá (Price), 
+    #và số lượng tồn kho (Stock) của các sản phẩm có số lượng tồn kho thấp hơn sản phẩm "T-Shirt"
+    select ProductName, Price, Stock from Products where Stock < 
+    (select Stock from Products where ProductName like 'T-Shirt');
+    select Stock from Products where ProductName like 'T-Shirt';
 
 
